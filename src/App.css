@@ -1,0 +1,34 @@
+.footer {
+    background-color: #111111; 
+    color: white;   
+    bottom: 0;     
+    text-align: center;    
+    position: absolute;     
+    bottom: 0;             
+    width: 100%;  
+    height: 60px;  
+    font-size: large;        
+}
+
+.register-link {
+    margin-left: auto;
+}
+
+.nav-link {
+    margin-right: 5px; 
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    color: #ffc107; 
+}
+
+.background-cover {
+    margin: 0;
+    height: 100vh; /* Ensures the body takes the full height */
+    background-image: url('./assets/Background_Img.png'); /* Update the path */
+    background-size: cover; /* Covers the entire viewport */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents image from repeating */
+  }
+
