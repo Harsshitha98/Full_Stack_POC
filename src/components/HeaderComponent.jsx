@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { isUserLoggedIn, logout } from "../services/AuthService";
 import { useNavigate } from "react-router-dom";
 
-const HeaderComponent = () => {
+const HeaderComponent = ({ searchQuery, setSearchQuery }) => {
   const isAuth = isUserLoggedIn();
 
   const navigator = useNavigate();
@@ -14,12 +14,13 @@ const HeaderComponent = () => {
   }
 
   //Search button and query 
-  function handleSearch(event) {
-    event.preventDefault(); 
-    const searchQuery = event.target.search.value.trim();
+  function handleSearch(e) {
+    e.preventDefault();
+    const query = e.target.search.value.trim();
+    setSearchQuery(query); // Update the search query state
 
-    if (searchQuery) {
-      navigator(`/search?query=${encodeURIComponent(searchQuery)}`);
+    if (query) {
+      navigator(`/search?query=${encodeURIComponent(query)}`);
     } else {
       console.log("Please enter a search term.");
     }
@@ -51,6 +52,7 @@ const HeaderComponent = () => {
                 name="search"
                 placeholder="Search"
                 aria-label="Search"
+                defaultValue={searchQuery} // Maintain search input value initial state
               />
               <button className="btn btn-outline-success" type="submit">
                 Search

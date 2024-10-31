@@ -7,11 +7,14 @@ import { BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
 import RegisterComponent from './components/RegisterComponent'
 import LoginComponent from './components/LoginComponent'
 import { isUserLoggedIn } from './services/AuthService'
+import SearchResult from './components/SearchResult'
+import React, { useState } from 'react';
 
 
 function App() {
 
-  
+  const [searchQuery, setSearchQuery] = useState('');
+
   function AuthenticatedRoute({children}){
 
     const isAuth = isUserLoggedIn();
@@ -30,7 +33,7 @@ function App() {
     <>
       <BrowserRouter>
       <div className="background-cover">
-          < HeaderComponent />
+          < HeaderComponent searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
           <Routes>
               {/* //http://localhost:3000 */}
               <Route path='/' element = {<LoginComponent />}></Route>
@@ -63,6 +66,9 @@ function App() {
               <Route path='/register' element = {<RegisterComponent />}></Route>
               {/* //http://localhost:3000/login */}
               <Route path='/login' element = {<LoginComponent />}></Route>
+
+              <Route path="/search" element={<SearchResult />} />
+          
 
           </Routes> 
           < FooterComponent />
