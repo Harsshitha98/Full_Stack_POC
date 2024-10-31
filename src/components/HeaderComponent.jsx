@@ -3,7 +3,11 @@ import { NavLink } from "react-router-dom";
 import { isUserLoggedIn, logout } from "../services/AuthService";
 import { useNavigate } from "react-router-dom";
 
+<<<<<<< HEAD
 const HeaderComponent = ({ searchQuery, setSearchQuery }) => {
+=======
+const HeaderComponent = () => {
+>>>>>>> 6c04e7aa8993ccd99266ec946aa75a59d009c89c
   const isAuth = isUserLoggedIn();
 
   const navigator = useNavigate();
@@ -14,6 +18,7 @@ const HeaderComponent = ({ searchQuery, setSearchQuery }) => {
   }
 
   //Search button and query 
+<<<<<<< HEAD
   function handleSearch(e) {
     e.preventDefault();
     const query = e.target.search.value.trim();
@@ -21,6 +26,14 @@ const HeaderComponent = ({ searchQuery, setSearchQuery }) => {
 
     if (query) {
       navigator(`/search?query=${encodeURIComponent(query)}`);
+=======
+  function handleSearch(event) {
+    event.preventDefault(); 
+    const searchQuery = event.target.search.value.trim();
+
+    if (searchQuery) {
+      navigator(`/search?query=${encodeURIComponent(searchQuery)}`);
+>>>>>>> 6c04e7aa8993ccd99266ec946aa75a59d009c89c
     } else {
       console.log("Please enter a search term.");
     }
@@ -52,7 +65,10 @@ const HeaderComponent = ({ searchQuery, setSearchQuery }) => {
                 name="search"
                 placeholder="Search"
                 aria-label="Search"
+<<<<<<< HEAD
                 defaultValue={searchQuery} // Maintain search input value initial state
+=======
+>>>>>>> 6c04e7aa8993ccd99266ec946aa75a59d009c89c
               />
               <button className="btn btn-outline-success" type="submit">
                 Search
